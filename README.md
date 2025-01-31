@@ -13,18 +13,18 @@ Pour répondre à ces besoins, Kafka est utilisé comme système de messagerie p
 1. API OpenWeatherMap  
    |  
    | --> **Producer**  
-   |&nbsp; &nbsp;&nbsp;&nbsp;   (envoie les données météo brutes en continu)  
+   |&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   (envoie les données météo brutes en continu)  
    |
 2. Kafka (Topic 1: "topic-weather")  
    |  
    | --> **Consumer** (Spark Streaming)   
-   |     (lit les données de "topic-weather", les traite en temps réel :  
-   |      calculs, transformations, enrichissements, etc.)  
+   | &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     (lit les données de "topic-weather", les traite en temps réel :  
+   | &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;      calculs, transformations, enrichissements, etc.)  
    |  
    | --> **Producer** (Spark Streaming)  
-   |     (écrit les données traitées dans "topic-weather-final")  
+   |  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    (écrit les données traitées dans "topic-weather-final")  
    |  
 3. Kafka (Topic 2: "topic-weather-final")  
    |  
    | --> **Consumer** (Application utilisateur)  
-   |     (récupère les données finales pour les afficher à l'utilisateur)
+   | &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (récupère les données finales pour les afficher à l'utilisateur)
