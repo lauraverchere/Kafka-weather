@@ -13,7 +13,7 @@ Pour répondre à ces besoins, Kafka est utilisé comme système de messagerie p
 1. API OpenWeatherMap  
    |  
    | --> **Producer**  
-   | &nbsp;    (envoie les données météo brutes en continu)  
+   |&nbsp; &nbsp;   (envoie les données météo brutes en continu)  
    |
 2. Kafka (Topic 1: "topic-weather")  
    |  
