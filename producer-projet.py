@@ -6,14 +6,11 @@ import time
 # ---------------------------------------------------------------------------
 # Étape 1 : Configuration
 # ---------------------------------------------------------------------------
-# TODO : Remplacez par votre clé personnelle d'API OpenWeather
-API_KEY = 'VOTRE_CLE_API'
+API_KEY = '60c351069138b06a8e6cc9b06d8c4752'
 
-# TODO : Ajouter deux autres villes de votre choix pour atteindre 5 villes
-CITIES = ['Paris', 'London', 'Tokyo']  # Exemple : Ajoutez ici vos villes
+CITIES = ['Paris', 'London', 'Tokyo', 'Kuala Lumpur', 'Annecy']  # Exemple : Ajoutez ici vos villes
 
-# TODO : Remplacez par le nom du topic Kafka utilisé dans votre projet
-KAFKA_TOPIC = 'tp-meteo'
+KAFKA_TOPIC = 'topic-weather'
 
 # Adresse du serveur Kafka
 KAFKA_SERVER = 'localhost:9092'
@@ -42,7 +39,6 @@ def get_weather_data(city):
 # ---------------------------------------------------------------------------
 # Étape 4 : Envoi des données en continu vers Kafka
 # ---------------------------------------------------------------------------
-# TODO : Remplacez par le bon nom de topic Kafka
 while True:
     for city in CITIES:
         data = get_weather_data(city)  # Récupération des données météo
@@ -50,5 +46,3 @@ while True:
             producer.send(KAFKA_TOPIC, key=city.encode('utf-8'), value=data)  # Envoi au topic Kafka
             print(f"Données envoyées pour {city}: {data}")
     time.sleep(60)  # Pause d'une minute entre chaque envoi
-
-# TODO : exécuter le code sur un terminal et s'assurer qu'il fonctionne comme souhaité
