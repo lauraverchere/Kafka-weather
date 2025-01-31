@@ -9,23 +9,22 @@ L’objectif principal est de fournir une application de monitoring météo en t
 Pour répondre à ces besoins, Kafka est utilisé comme système de messagerie pour assurer une ingestion fluide des données en temps réel, tout en garantissant une haute disponibilité et une scalabilité horizontale. Spark Streaming est choisi pour son efficacité dans le traitement des flux de données en continu et sa capacité à s'intégrer facilement avec Kafka. Ce duo technologique permet d’assurer une faible latence et une transformation des données en temps réel, tout en restant robuste face aux charges importantes.  
 
 # Etapes :  
+
 1. API OpenWeatherMap  
    |  
-   | --> (Récupèration des données météo + Envoie des données en temps réel au topic Kafka)  
-   |  
+   | --> **Producer**  
+   |     (envoie les données météo brutes en continu)  
+   |
 2. Kafka (Topic 1: "topic-weather")  
    |  
-   | --> (Collecte les données + Stockage des données météo brutes en continu)  
+   | --> **Consumer** (Spark Streaming)   
+   |     (lit les données de "topic-weather", les traite en temps réel :  
+   |      calculs, transformations, enrichissements, etc.)  
    |  
-3. Spark Streaming  
+   | --> **Producer** (Spark Streaming)  
+   |     (écrit les données traitées dans "topic-weather-final")  
    |  
-   | --> (Lit les données de "topic-weather", les traite)  
+3. Kafka (Topic 2: "topic-weather-final")  
    |  
-4. Kafka (Topic 2: "topic-weather-final")  
-   |  
-   | --> (Stocke les données traitées, prêtes à être utilisées par l’application ou d’autres systèmes)  
-   |  
-5. Application utilisateur  
-   |  
-   | --> (Récupère et affiche les données météo traitées)  
-
+   | --> **Consumer** (Application utilisateur)  
+   |     (récupère les données finales pour les afficher à l'utilisateur)
