@@ -37,7 +37,7 @@ Pour répondre à ces besoins, Kafka est utilisé comme système de messagerie p
 ./kafka_2.12-2.6.0/bin/kafka-server-start.sh ./kafka_2.12-2.6.0/config/server.properties  
   
 **Configuration de Spark :**   
-export SPARK_HOME=/workspaces/<votre-repertoire>/spark-3.2.3-bin-hadoop2.7  
+export SPARK_HOME=/workspaces/projet-esme/spark-3.2.3-bin-hadoop2.7  
 export PATH=$SPARK_HOME/bin:$PATH  
 
 **Lancement du producer Kafka :**   
