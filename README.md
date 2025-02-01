@@ -28,3 +28,15 @@ Pour répondre à ces besoins, Kafka est utilisé comme système de messagerie p
    |  
    | --> **Consumer** (Application utilisateur)  
    | &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (récupère les données finales pour les afficher à l'utilisateur)
+  
+# Commandes à exécuter pour lancer les codes :  
+**Lancement de Zookeeper :** ./kafka_2.12-2.6.0/bin/zookeeper-server-start.sh ./kafka_2.12-2.6.0/config/zookeeper.properties  
+**Lancement de Kafka :** ./kafka_2.12-2.6.0/bin/kafka-server-start.sh ./kafka_2.12-2.6.0/config/server.properties  
+  
+**Configuration de Spark :** 
+export SPARK_HOME=/workspaces/<votre-repertoire>/spark-3.2.3-bin-hadoop2.7  
+export PATH=$SPARK_HOME/bin:$PATH  
+
+**Lancement du producer Kafka :** python3.10 producer.py  
+
+**Lancement traitement Spark Streaming :** $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.3 spark.py
