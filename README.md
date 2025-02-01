@@ -40,6 +40,8 @@ Pour répondre à ces besoins, Kafka est utilisé comme système de messagerie p
 export SPARK_HOME=/workspaces/<votre-repertoire>/spark-3.2.3-bin-hadoop2.7  
 export PATH=$SPARK_HOME/bin:$PATH  
 
-**Lancement du producer Kafka :** python3.10 producer.py  
+**Lancement du producer Kafka :**   
+python3.10 producer.py  
 
-**Lancement traitement Spark Streaming :** $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.3 spark.py
+**Lancement traitement Spark Streaming :**   
+$SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.3 spark.py
